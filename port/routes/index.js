@@ -10,11 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/zigbee', function(req, res, next) {
   model.all(function(err, data) {
-    consbabi ole.log(data);
+    console.log(data);
     res.json(data);
   })
 });
-
 
 router.post('/zigbee', function(req, res, next) {
   json = req.body
@@ -34,5 +33,3 @@ router.get('/', function(req, res, next) {
 
 
 module.exports = router;
-
-
