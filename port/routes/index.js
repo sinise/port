@@ -21,6 +21,7 @@ router.post('/zigbee', function(req, res, next) {
   model.updateBerth(json, function(err, response) {
     console.log(response)
     res.json(response);
+  })
 
 });
 
