@@ -27,8 +27,9 @@ RUN npm install
 mkdir -p /www/port
 COPY port /www/port/
 
+
 EXPOSE 80:80
 EXPOSE 443:443
 EXPOSE 3000:3000
 
-RUN mongod &
+RUN mongod
