@@ -12,7 +12,7 @@ var db = require('./model/db');
 var app = express();
 
 // connect to mongo
-db.connect('mongodb://port.lapela.dk:27017/zigbee', function(err) {
+db.connect('mongodb://locahost:27017/zigbee', function(err) {
   if (err) {
     console.log('Unable to connect to Mongo.')
     process.exit(1)

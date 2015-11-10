@@ -31,7 +31,7 @@ RUN git clone https://github.com/sinise/port.git
 WORKDIR /port/port
 
 RUN npm install
-RUN /port/port/bin/www
+
 
 #mkdir -p /www/port
 #COPY port/bin /www/port/bin/
