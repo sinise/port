@@ -24,7 +24,7 @@ WORKDIR /port/port
 RUN npm install
 
 
-mkdir -p /www/port
+RUN mkdir -p /www/port
 COPY port /www/port/
 
 
