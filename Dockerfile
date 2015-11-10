@@ -26,4 +26,4 @@ EXPOSE 80:80
 EXPOSE 443:443
 EXPOSE 3000:3000
 WORKDIR /www/port
-CMD ["start.sh"]
+CMD ["/www/port/start.sh"]
