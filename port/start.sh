@@ -1,2 +1,2 @@
 #!/bin/bash
-/port/port/bin/www
+git pull

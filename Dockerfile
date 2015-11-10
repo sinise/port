@@ -20,7 +20,7 @@ COPY port /www/port/
 WORKDIR /www/port
 RUN npm install
 
-#CMD ["/www/port/start.sh"]
+CMD ["/www/port/start.sh"]
 EXPOSE 80:80
 EXPOSE 443:443
 EXPOSE 3000:3000
