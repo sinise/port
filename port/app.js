@@ -15,7 +15,7 @@ var db = require('./model/db');
 var app = express();
 
 // connect to mongo
-db.connect('mongodb://localhost/zigbee', function(err) {
+db.connect('mongodb://db/zigbee', function(err) {
   if (err) {
     console.log('Unable to connect to Mongo.')
     process.exit(1)
