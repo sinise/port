@@ -13,14 +13,14 @@ RUN npm install express -g
 RUN npm install express-generator -g
 RUN npm install -g nodemon
 
-RUN mkdir -p /www/port
-COPY port /www/port/
+#RUN mkdir -p /www/port
+#VOLUME /home/sebastian/web/port:/www
 
 
-WORKDIR /www/port
-RUN npm install
+#WORKDIR /www/port
+#RUN npm install
 
-CMD ["/www/port/start.sh"]
+#CMD ["/www/port/start.sh"]
 EXPOSE 80:80
 EXPOSE 443:443
 EXPOSE 3000:3000
