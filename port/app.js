@@ -15,7 +15,7 @@ var assert = require('assert');
 var app = express();
 
 // connect to mongo
-db.connect('localhost/zigbee', function(err) {
+db.connect('mongodb://localhost/zigbee', function(err) {
   if (err) {
     console.log('Unable to connect to Mongo.')
     process.exit(1)
