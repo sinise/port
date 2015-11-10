@@ -15,11 +15,6 @@ RUN sudo tar -C /usr/local --strip-components 1 -xzf node*
 RUN npm install express -g
 RUN npm install express-generator -g
 RUN npm install -g nodemon
-
-WORKDIR /
-RUN git clone https://github.com/sinise/port.git
-WORKDIR /port/port
-
 RUN npm install
 
 
@@ -30,5 +25,5 @@ COPY port /www/port/
 EXPOSE 80:80
 EXPOSE 443:443
 EXPOSE 3000:3000
-
+WORKDIR /www/port
 CMD ["start.sh"]
