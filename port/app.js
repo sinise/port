@@ -8,9 +8,9 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-//var db = require('./model/db');
-var db = require('mongodb').MongoClient;
-var assert = require('assert');
+var db = require('./model/db');
+//var db = require('mongodb').MongoClient;
+//var assert = require('assert');
 
 var app = express();
 
