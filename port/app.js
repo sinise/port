@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-#var db = require('./model/db');
+//var db = require('./model/db');
 var app = express();
 
 // connect to mongo
