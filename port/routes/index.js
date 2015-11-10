@@ -5,7 +5,7 @@ var model = require('../model/model');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'ZigB' });
 });
 
 router.get('/zigbee', function(req, res, next) {
