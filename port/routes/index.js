@@ -26,8 +26,8 @@ router.post('/zigbee', function(req, res, next) {
 });
 
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/angular', function(req, res, next) {
+  res.sendfile('./public/javascripts/angular.html');
 });
 
 
