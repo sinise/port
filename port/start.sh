@@ -1,3 +1,4 @@
 #!/bin/bash
+cd /www
 npm install
-bin/www
+/www/bin/www
