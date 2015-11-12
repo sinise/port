@@ -15,6 +15,7 @@ router.get('/getAllBerths', function(req, res, next) {
   })
 });
 
+//not testet jet also see coorsponding model in model/model
 router.post('/getBerth', function(req, res, next) {
   json = req.body;
   model.get(json._id, function(err, data) {

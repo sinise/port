@@ -22,5 +22,4 @@ exports.updateBerth = function(json, callback) {
   collection.replaceOne({_id: json._id}, json, {upsert: true}, function(err, response) {
     callback(err, response)
   })
-
 }
