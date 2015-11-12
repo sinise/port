@@ -29,7 +29,7 @@
   </tr></thead>
   <tbody><tr ng-repeat="x in Berths">
     <td>{{ x._id }}</td>
-    <td>{{ x.ocupied}}</td>
+    <td>{{ x.occupied}}</td>
   </tr></tbody>
 </table>
 
@@ -39,7 +39,7 @@
 <script>
 var app = angular.module('myApp', []);
 app.controller('customersCtrl', function($scope, $http) {
-  $http.get("http://localhost:3000/zigbee")
+  $http.get("http://localhost/getAllBerths")
   .success(function (response) {$scope.Berths = response;});
 });
 </script>
