@@ -1,0 +1,17 @@
+<section class="berthspage">
+    <h3>All berths in the port</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ocupied</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="x in Berths">
+            <td>{{ x._id }}</td>
+            <td>{{ x.occupied}}</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
