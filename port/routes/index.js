@@ -19,7 +19,6 @@ router.post('/getBerth', function(req, res, next) {
 });
 
 
-
 router.put('/updateBerth', function(req, res, next) {
   json = req.body
   console.log(json)

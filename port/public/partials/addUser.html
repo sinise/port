@@ -1,0 +1,24 @@
+<h1>{{Title}}</h1>
+<form name="registerForm" novalidate>
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" name="user" ng-model="username" required>
+            <span style="color:#ff0000" ng-show="registerForm.user.$dirty && registerForm.user.$invalid">
+                <span ng-show="registerForm.user.$error.required">Username is required.</span>
+            </span></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" ng-model="password" required>
+            <span style="color:#ff0000" ng-show="registerForm.password.$dirty && registerForm.password.$invalid">
+                <span ng-show="registerForm.password.$error.required">Password is required.</span>
+            </span></td>
+        </tr>
+    </table>
+    <br><br>
+    <button ng-click="reset()">Register</button>
+</form>
+<p>form = {{user }}</p>
+<p>master = {{master}}</p>
+
