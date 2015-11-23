@@ -4,15 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var jwt = require('jsonwebtoken');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var config = require('./config')
 var db = require('./model/db');
 //var db = require('mongodb').MongoClient;
 //var assert = require('assert');
 
 var app = express();
+app.set('superSecret', config.secret); // secret variable
 
 // connect to mongo
 db.connect('mongodb://db/zigbee', function(err) {

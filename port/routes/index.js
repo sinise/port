@@ -18,7 +18,6 @@ router.post('/getBerth', function(req, res, next) {
   })
 });
 
-
 router.put('/updateBerth', function(req, res, next) {
   json = req.body
   console.log(json)
@@ -28,8 +27,7 @@ router.put('/updateBerth', function(req, res, next) {
   })
 });
 
-
-router.get('*', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.sendFile('./public/index.html');
 });
 
