@@ -1,7 +1,7 @@
 var portControllers = angular.module('portControllers', []);
 
 portControllers.controller('BerthController', function ($scope, $http) {
-    $http.get("http://localhost/getAllBerths")
+    $http.get("./getAllBerths")
         .success(function (response) {
             $scope.Berths = response;
         });
@@ -9,7 +9,7 @@ portControllers.controller('BerthController', function ($scope, $http) {
 
 
 portControllers.controller('UserController', function ($scope, $http) {
-    $http.get("http://localhost/users/getAllUsers")
+    $http.get("./users/getAllUsers")
         .success(function (response) {
             $scope.Users = response;
         });
@@ -18,14 +18,14 @@ portControllers.controller('UserController', function ($scope, $http) {
     $scope.formData = {};
     // when submitting the add form, send the text to the node API
     $scope.registerUser = function() {
-        $http.post('http://localhost/users/updateUser', $scope.formData)
+        $http.post('./users/updateUser', $scope.formData)
             .success(function (data, response) {
                 $scope.formData = {}; // clear the form so our user is ready to enter another
                 console.log(data);
                 console.log(response);
                 $scope.response = response;
                 $scope.data = data;
-				$http.get("http://localhost/users/getAllUsers")
+				$http.get("./users/getAllUsers")
         			.success(function (response) {
             			$scope.Users = response;
         			});

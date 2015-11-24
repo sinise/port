@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var apiModel = require('../model/apiModel');
 
+
 router.get('/getAllBerths', function(req, res, next) {
   apiModel.all(function(err, data) {
     console.log(data);
