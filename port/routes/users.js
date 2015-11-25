@@ -50,16 +50,20 @@ router.get('/getAllUsers', function(req, res, next) {
       res.json(data);
     })
   } else {
-    res.json({message: 'you do not have access to this page'})
+    res.json({message: 'you do not have access to this page'});
   }
 });
 router.post('/updateUser', function(req, res, next) {
-  json = req.body;
-  console.log(json);
-  userModel.updateUser(json, function(err, response) {
-    console.log(response)
-    res.json(response);
-  })
+  if(req.authenticated == true) {
+    json = req.body;
+    console.log(json);
+    userModel.updateUser(json, function (err, response) {
+      console.log(response)
+      res.json(response);
+    })
+  } else{
+    res.json({message: 'you do not have access to this page'});
+  }
 });
 
 router.get('*', function(req, res, next) {

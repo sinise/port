@@ -34,5 +34,25 @@ portControllers.controller('UserController', function ($scope, $http) {
                 console.log('Error: ' + data);
             });
     };
+    $scope.authenticateUser = function() {
+        $http.post('./users/authenticate', $scope.formData)
+            .success(function (data, response) {
+                console.log(data);
+                console.log(response);
+                $scope.response = response;
+                $scope.data = data;
+                //if login was successfull add received token to all headers
+                if(data.success){
+                    $http.defaults.headers.common = { token : data.token }
+                }
+                $http.get("./users/getAllUsers")
+                    .success(function (response) {
+                        $scope.Users = response;
+                    });
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    };
 });
 

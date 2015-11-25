@@ -18,7 +18,7 @@
     </table>
 </section>
 <h1>{{Title}}</h1>
-<form role="form" name="registerForm" novalidate ng-submit="submit()">
+<form role="form" name="authenticateForm" novalidate ng-submit="submit()">
     <div class="form-group">
         <label for"username">Username:</label>
         <input type="text" class="form-control" name="user" ng-model="formData.username" required>
@@ -29,12 +29,12 @@
 
     <div class="form-group">
         <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" name="password" ng-model="formData.password" required>
+        <input type="password" class="form-control" id="pwd" name="password" ng-model="formData.password" required>
             <span style="color:#ff0000" ng-show="registerForm.password.$dirty && registerForm.password.$invalid">
                 <span ng-show="registerForm.password.$error.required">Password is required.</span>
             </span>
     </div>
-    <button type="submit" class="btn btn-sucess" ng-click="registerUser()">Register</button>
+    <button type="submit" class="btn btn-sucess" ng-click="authenticateUser()">Register</button>
 </form>
 <p>form = {{formData }}</p>
 <p>response = {{response}}</p>
