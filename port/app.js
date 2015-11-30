@@ -8,8 +8,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var config = require('./config')
 var db = require('./model/db');
-//var db = require('mongodb').MongoClient;
-//var assert = require('assert');
 
 var app = express();
 app.set('superSecret', config.secret); // secret variable
@@ -24,13 +22,13 @@ db.connect('mongodb://db/zigbee', function(err) {
     console.log('Connected to DB')
   }
 })
-
+console.log("running in " + app.get('env') + " mode");
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

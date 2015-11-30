@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var apiModel = require('../model/apiModel');
 
-
+/**
+ * Return a list af all berth and their status as json
+ */
 router.get('/getAllBerths', function(req, res, next) {
   apiModel.all(function(err, data) {
     console.log(data);
@@ -19,6 +21,10 @@ router.post('/getBerth', function(req, res, next) {
   })
 });
 
+
+/**
+ * Updata the status of a berth. or create berth if not in the DB
+ */
 router.put('/updateBerth', function(req, res, next) {
   json = req.body
   console.log(json)
@@ -28,6 +34,9 @@ router.put('/updateBerth', function(req, res, next) {
   })
 });
 
+/**
+ * Send the index.html file
+ */
 router.get('/', function(req, res, next) {
   res.sendFile('./public/index.html');
 });

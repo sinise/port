@@ -9,7 +9,6 @@
         </tr>
         </thead>
         <tbody>
-
         <tr ng-repeat="x in Users">
             <td>{{ x._id }}</td>
             <td>{{ x.username}}</td>
@@ -35,7 +34,7 @@
                 <span ng-show="registerForm.password.$error.required">Password is required.</span>
             </span>
     </div>
-    <button type="submit" class="btn btn-sucess" ng-click="registerUser()">Register</button>
+    <button type="submit" class="btn btn-sucess" ng-click="registerUser()">Add user</button>
 </form>
 <p>form = {{formData }}</p>
 <p>response = {{response}}</p>

@@ -26,7 +26,6 @@
                 <span ng-show="registerForm.user.$error.required">Username is required.</span>
             </span>
     </div>
-
     <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" id="pwd" name="password" ng-model="formData.password" required>
@@ -34,7 +33,7 @@
                 <span ng-show="registerForm.password.$error.required">Password is required.</span>
             </span>
     </div>
-    <button type="submit" class="btn btn-sucess" ng-click="authenticateUser()">Register</button>
+    <button type="submit" class="btn btn-sucess" ng-click="authenticateUser()">Login</button>
 </form>
 <p>form = {{formData }}</p>
 <p>response = {{response}}</p>

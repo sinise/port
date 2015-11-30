@@ -23,6 +23,7 @@ exports.updateUser = function(json, callback) {
 exports.getUser = function(json, callback) {
     var collection = db.get().collection('users');
     collection.find({username: json.username}).toArray(function(err, data) {
+        console.log(data)
         callback(err, data[0])
     })
 }

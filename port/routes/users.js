@@ -4,29 +4,37 @@ var userModel = require('../model/userModel');
 var jwt = require('jsonwebtoken');
 var app = require('../app');
 
-
+/**
+ * Autheticate a user
+ */
 router.post('/authenticate', function(req, res, next) {
   received = req.body;
 
   userModel.getUser(received, function(err, data) {
-    console.log('---------post-----------------')
+    //print username and password
+    console.log('---------post---------------')
     console.log(received.username)
     console.log(received.password)
     console.log('-----------DB---------------')
-    console.log(data);
-    console.log(data.username);
-    console.log(data.password);
-    if (data.password != received.password){
+
+    //if there was no data in the db
+    if(data === undefined){
       res.json({success: false, message: "Authentication failed"});
-    } else {
-      console.log('we are in else the password match');
-      var token = jwt.sign({userType: 'admin'}, req.app.get('superSecret'));
-      res.json({success: true, message: "you are authenticated", token: token})
+    } else{
+      if (data.password != received.password){
+        res.json({success: false, message: "Authentication failed"});
+      } else {
+        var token = jwt.sign({userType: 'admin'}, req.app.get('superSecret'));
+        res.json({success: true, message: "you are authenticated", token: token})
+      }
     }
   })
 });
 
-
+/**
+ * Middleware that check if a user is authenticated.
+ * sets req.autheticated to the type of user
+ */
 
 router.all('/*', function(req, res, next) {
   token = req.headers.token;
@@ -34,17 +42,18 @@ router.all('/*', function(req, res, next) {
   jwt.verify(token, req.app.get('superSecret'), function(err, decoded) {
     console.log(decoded) // bar
     if (decoded){
-      req.authenticated = true;
+      req.authenticated = decoded.userType;
       next();
     } else {
-      req.authenticated = false;
+      req.authenticated = null;
       next();
     }
   });
 });
 
+
 router.get('/getAllUsers', function(req, res, next) {
-  if(req.authenticated == true){
+  if(req.authenticated == 'admin'){
     userModel.all(function(err, data) {
       console.log(data);
       res.json(data);
@@ -54,7 +63,7 @@ router.get('/getAllUsers', function(req, res, next) {
   }
 });
 router.post('/updateUser', function(req, res, next) {
-  if(req.authenticated == true) {
+  if(req.authenticated == 'admin') {
     json = req.body;
     console.log(json);
     userModel.updateUser(json, function (err, response) {
