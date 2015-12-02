@@ -31,22 +31,10 @@ router.post('/authenticate', function(req, res, next) {
   })
 });
 
-router.post('/updateUser', function(req, res, next) {
-  if(req.authenticated == 'admin') {
-    json = req.body;
-    console.log(json);
-    userModel.updateUser(json, function (err, response) {
-      console.log(response)
-      res.json(response);
-    })
-  } else{
-    res.json({message: 'you do not have access to this page'});
-  }
-});
 /**
  * Middleware that check if a user is authenticated.
  * sets req.autheticated to the type of user
- */
+ 
 router.all('/*', function(req, res, next) {
   token = req.headers.token;
   console.log(token);
@@ -61,7 +49,7 @@ router.all('/*', function(req, res, next) {
     }
   });
 });
-
+*/
 
 router.get('/getAllUsers', function(req, res, next) {
   if(req.authenticated == 'admin'){
@@ -73,7 +61,7 @@ router.get('/getAllUsers', function(req, res, next) {
     res.json({message: 'you do not have access to this page'});
   }
 });
-/*
+
 router.post('/updateUser', function(req, res, next) {
   if(req.authenticated == 'admin') {
     json = req.body;
@@ -86,7 +74,7 @@ router.post('/updateUser', function(req, res, next) {
     res.json({message: 'you do not have access to this page'});
   }
 });
-*/
+
 router.get('*', function(req, res, next) {
   res.send("404. We don't know that page");
 });
