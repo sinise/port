@@ -34,7 +34,7 @@ router.post('/authenticate', function(req, res, next) {
 /**
  * Middleware that check if a user is authenticated.
  * sets req.autheticated to the type of user
- 
+ */ 
 router.all('/*', function(req, res, next) {
   token = req.headers.token;
   console.log(token);
@@ -49,7 +49,7 @@ router.all('/*', function(req, res, next) {
     }
   });
 });
-*/
+
 
 router.get('/getAllUsers', function(req, res, next) {
   if(req.authenticated == 'admin'){
@@ -63,8 +63,7 @@ router.get('/getAllUsers', function(req, res, next) {
 });
 
 router.post('/updateUser', function(req, res, next) {
-  //if(req.authenticated == 'admin') {
-  if(true) {
+  if(req.authenticated == 'admin') {
     json = req.body;
     console.log(json);
     userModel.updateUser(json, function (err, response) {
