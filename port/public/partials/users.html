@@ -1,19 +1,28 @@
+
 <section class="userspage">
-    <h3>All users</h3>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-        	<th>id</th>
-            <th>user</th>
-            <th>password</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="x in Users">
-            <td>{{ x._id }}</td>
-            <td>{{ x.user}}</td>
-            <td>{{ x.password}}</td>
-        </tr>
-        </tbody>
-    </table>
+    <div>
+        <div class="check-element animate-show" ng-show="Logedin">
+            <h3>All users</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>user</th>
+                    <th>password</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in Users">
+                    <td>{{ x._id }}</td>
+                    <td>{{ x.user}}</td>
+                    <td>{{ x.password}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="check-element animate-show" ng-hide="Logedin">
+            <h3>You do not have access to this page</h3>
+        </div>
+
+        </div>
 </section>
