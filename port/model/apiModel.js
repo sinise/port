@@ -11,15 +11,6 @@ exports.all = function(callback) {
   })
 }
 
-//not testet ment to give one berth back from id
-exports.get = function(berthId, callback) {
-  var collection = db.get().collection('berths')
-
-  collection.find({_id: berthId}).toArray(function(err, data) {
-    callback(err, data)
-  })
-}
-
 /**
  * Update berth status (or insert berth if not exist)
  * @param json The berth and its status as {"_id": id, "occupied": status}

@@ -7,16 +7,10 @@ var app = require('../app');
 /**
  * Autheticate a user
  */
-router.post('/authenticate', function(req, res, next) {
+router.post('/authenticate', function(req, res) {
   received = req.body;
 
   userModel.getUser(received, function(err, data) {
-    //print username and password
-    console.log('---------post---------------')
-    console.log(received.username)
-    console.log(received.password)
-    console.log('-----------DB---------------')
-
     //if there was no data in the db
     if(data === undefined){
       res.json({success: false, message: "Authentication failed"});
@@ -51,7 +45,7 @@ router.all('/*', function(req, res, next) {
 });
 
 
-router.get('/getAllUsers', function(req, res, next) {
+router.get('/getAllUsers', function(req, res) {
   if(req.authenticated == 'admin'){
     userModel.all(function(err, data) {
       console.log(data);
@@ -62,7 +56,7 @@ router.get('/getAllUsers', function(req, res, next) {
   }
 });
 
-router.post('/updateUser', function(req, res, next) {
+router.post('/updateUser', function(req, res) {
   if(req.authenticated == 'admin') {
     json = req.body;
     console.log(json);
@@ -75,7 +69,7 @@ router.post('/updateUser', function(req, res, next) {
   }
 });
 
-router.get('*', function(req, res, next) {
+router.get('*', function(req, res) {
   res.send("404. We don't know that page");
 });
 
