@@ -57,8 +57,8 @@ router.get('/getAllUsers', function(req, res) {
 });
 
 router.post('/updateUser', function(req, res) {
-//  if(req.authenticated == 'admin') {
-  if(true) {
+  if((req.authenticated == 'admin')) {
+//  if(true) {
     json = req.body;
     console.log(json);
     userModel.updateUser(json, function (err, response) {
